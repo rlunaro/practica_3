@@ -11,6 +11,8 @@ int leer_validar_numero(char* prompt, char *validos);
 
 char leer_validar_char(char* prompt, char* validos);
 
+void waitForIntro( char *prompt );
+
 #endif  // ENTRADA_SALIDA_H
 
 
