@@ -1,3 +1,13 @@
+
+# Personal settings
+private/
+
+# Eclipse files 
+.cproject
+.project
+.settings/
+
+
 # Prerequisites
 *.d
 
@@ -50,3 +60,4 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+/Debug/
