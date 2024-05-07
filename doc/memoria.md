@@ -193,11 +193,19 @@ añadiendo elementos al vector resultado pero ordenando.
 ### Analisis del código fuente
  
 
-## Opcion X: plantilla
+## Opcion 6: combinarOrdenarRec
 
 ### Diseño del algoritmo
+
+Este algoritmo es una modificación del ```combinarVectores```
+realizado en la opción 4. La única salvedad es que además
+de combinar ambos vectores debemos introducirlos en el 
+vector resultado ordenados. 
+
+
   
 ### Qué tipo de recursivad se implementa
 
 ### Analisis del código fuente
+ 
  

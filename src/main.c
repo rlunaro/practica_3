@@ -216,6 +216,49 @@ void combinarOrdenarIter( int *v1,
 }
 
 
+void combinarOrdenarRec( int pos1,
+                       int pos2,
+                       int *v1,
+                       int *v2,
+                       unsigned long size1,
+                       unsigned long size2,
+                       int posResult,
+                       int *resultadoCombinar ){
+    // caso base 1: v1 no tiene ya elementos pero v2 sí
+    if( pos1 == size1 && pos2 < size2 ){
+        while( pos2 < size2 ){
+            resultadoCombinar[posResult++] = v2[pos2++];
+        }
+        return;
+    }
+    // caso base 2: v2 no tiene ya elementos pero v1 sí
+    if( pos1 < size1 && pos2 == size2 ){
+        while( pos1 < size1 ){
+            resultadoCombinar[posResult++] = v1[pos1++];
+        }
+        return;
+    }
+    if( pos1 == size1 && pos2 == size2 ){
+        return;
+    }
+    if( v1[pos1] < v2[pos2] ){
+        resultadoCombinar[posResult++] = v1[pos1];
+        resultadoCombinar[posResult++] = v2[pos2];
+    }else{
+        resultadoCombinar[posResult++] = v2[pos2];
+        resultadoCombinar[posResult++] = v1[pos1];
+    }
+    pos1++;
+    pos2++;
+    combinarOrdenarRec( pos1,
+            pos2,
+            v1,
+            v2,
+            size1,
+            size2,
+            posResult,
+            resultadoCombinar );
+}
 
 int main(int argc, char *argv[]){
 
@@ -263,7 +306,12 @@ int main(int argc, char *argv[]){
             imprimeVector( "combinado", resultadoCombinar2, SIZE1+SIZE2 );
             waitForIntro(NULL);
             break;
-        }
+        case 6:
+            int resultadoCombinar3[SIZE1+SIZE2];
+            combinarOrdenarRec( 0, 0, v1, v2, SIZE1, SIZE2, 0, resultadoCombinar3 );
+            imprimeVector( "combinado", resultadoCombinar3, SIZE1+SIZE2 );
+            waitForIntro(NULL);
+            break;        }
     }while( opcion != 0 );
 
     printf("gracias por usar nuestro programa\n");
